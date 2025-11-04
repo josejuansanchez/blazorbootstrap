@@ -5,7 +5,7 @@ Repositorio con ejemplos sobre cómo usar componentes de interfaz con [BlazorBoo
 ## Índice
 
 - [Introducción](#introducción)
-- [Requisitos previos](#requisitos-previos)
+- [Instalación de BlazorBootstrap](#instalación-de-blazorbootstrap)
 - **Ejemplos**
   - [Ejemplo 1. Alertas y botones](#ejemplo-1-alertas-y-botones)
   - [Ejemplo 2. Uso de modales](#ejemplo-2-uso-de-modales)
