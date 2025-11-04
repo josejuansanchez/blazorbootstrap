@@ -298,6 +298,7 @@ Cree un nuevo archivo Razor llamado `Ejemplo4.razor` en la carpeta `Pages` de su
 ```razor
 @page "/ejemplo4"
 @using System.ComponentModel.DataAnnotations
+@rendermode InteractiveServer
 
 <h3>Ejemplo 4. Formulario con validación</h3>
 
@@ -318,10 +319,8 @@ Cree un nuevo archivo Razor llamado `Ejemplo4.razor` en la carpeta `Pages` de su
     </div>
 
     <div class="mb-3">
-        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
-        <DateInput TValue="DateOnly?" id="fechaNacimiento" class="form-control"
-                   @bind-Value="usuario.FechaNacimiento"
-                   Placeholder="Introduce una fecha" />
+        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
+        <DateInput TValue="DateOnly?" id="fechaNacimiento" class="form-control" @bind-Value="@usuario.FechaNacimiento" Placeholder="Introduce una fecha" />
         <ValidationMessage For="@(() => usuario.FechaNacimiento)" />
     </div>
 
