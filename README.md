@@ -1,6 +1,6 @@
 # blazorbootstrap
 
-Repositorio con ejemplos sobre cómo usar componentes de interfaz con [BlazorBootstrap][1].
+Repositorio con ejemplos sencillos sobre cómo usar componentes de interfaz con [BlazorBootstrap][1], para la asignatura de [Desarrollo Web/Móvil][4].
 
 ## Índice
 
@@ -529,7 +529,9 @@ Combina el **Ejemplo 2** (Modal) con el **Ejemplo 5** (Grid) para confirmar la e
 * [Microsoft Docs: Componentes de Blazor Server](https://learn.microsoft.com/es-es/aspnet/core/blazor/components/?view=aspnetcore-9.0)
 * [Documentación oficial de Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 * [Repositorio en GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap)
+* [Repositorio en GitHub con ejemplos para las clases de DWM](https://github.com/jaruiz1961-ual/EjemplosClaseDWM)
 
 [1]: https://demos.blazorbootstrap.com
 [2]: https://getbootstrap.com
 [3]: https://blazorise.com
+[4]: https://www.ual.es/estudios/masteres/presentacion/plandeestudios/asignatura/7132/71321108
