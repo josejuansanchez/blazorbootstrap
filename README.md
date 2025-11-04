@@ -148,13 +148,12 @@ Cree un nuevo archivo Razor llamado `Ejemplo2.razor` en la carpeta `Pages` de su
 
 ### Comentarios
 
-* `<Modal>`: define la ventana modal.
+* `<Modal>`: Componente que define la ventana modal.
 
-  * `@ref="modal"`: referencia al componente para manipularlo desde C#.
-  * `Title`: título que aparece en la parte superior.
-* `<BodyTemplate>`: contenido principal de la ventana.
-* `<FooterTemplate>`: parte inferior, normalmente con botones de acción.
-* `modal.ShowAsync()` / `modal.HideAsync()`: muestran u ocultan la ventana.
+  * `@ref="modal"`: Referencia al componente para manipularlo desde C#.
+* `<BodyTemplate>`: Contenido principal de la ventana modal.
+* `<FooterTemplate>`: Parte inferior del modal, normalmente con botones de acción.
+* `modal.ShowAsync()` / `modal.HideAsync()`: Métodos que muestran u ocultan la ventana modal.
 
 **Paso 3. Modificar el archivo de navegación**
 
@@ -213,10 +212,17 @@ Cree un nuevo archivo Razor llamado `Ejemplo3.razor` en la carpeta `Pages` de su
 
 ### Comentarios
 
-* `<Card>`: contenedor visual con borde y sombra (`shadow-sm`).
-* `<CardHeader>`: parte superior, usada para el nombre del usuario.
-* `<CardBody>`: contenido principal con imagen, texto y datos secundarios.
-* Las clases Bootstrap (`col-md-6`, `col-lg-4`) hacen que la cuadrícula sea **responsive**.
+* `<Card>`: Contenedor visual con borde y sombra (`shadow-sm`).
+* `<CardHeader>`: Parte superior de la tarjeta, usada para el nombre del usuario.
+* `<CardBody>`: Contenido principal de la tarjeta con imagen, texto y datos secundarios.
+* Las clases Bootstrap (`col-12`, `col-md-6`, `col-lg-4`) hacen que la cuadrícula sea **responsive**.
+
+| Clase | Breakpoint | Significado | Resultado visual |
+| :--- | :--- |:--- | :--- |
+| `col-12`   | **Extra pequeño (XS)**: pantallas menores de 576 px (móviles) | La columna ocupa **todo el ancho disponible (12 columnas)**      | Una sola tarjeta por fila |
+| `col-md-6` | **Mediano (MD)**: >= 768 px (tablets)                          | La columna ocupa **6 de 12 columnas** (la mitad del contenedor)  | Dos tarjetas por fila     |
+| `col-lg-4` | **Grande (LG)**: >= 992 px (ordenadores de escritorio)         | La columna ocupa **4 de 12 columnas** (un tercio del contenedor) | Tres tarjetas por fila    |
+
 
 **Paso 3. Modificar el archivo de navegación**
 
@@ -308,11 +314,11 @@ Cree un nuevo archivo Razor llamado `Ejemplo4.razor` en la carpeta `Pages` de su
 
 ### Comentarios
 
-* `<EditForm>`: controla el formulario y valida el modelo.
-* `<DataAnnotationsValidator>`: activa la validación basada en atributos.
-* `<ValidationMessage>`: muestra los mensajes de error específicos.
-* `<DateInput>`: componente de BlazorBootstrap para fechas (`DateOnly`).
-* `<Alert>`: muestra un mensaje de éxito tras guardar.
+* `<EditForm>`: Controla el formulario y valida el modelo.
+* `<DataAnnotationsValidator>`: Activa la validación basada en atributos.
+* `<ValidationMessage>`: Muestra los mensajes de error específicos.
+* `<DateInput>`: Componente de BlazorBootstrap para fechas (`DateOnly`).
+* `<Alert>`: Muestra un mensaje de éxito tras guardar.
 
 
 **Paso 3. Modificar el archivo de navegación**
@@ -399,6 +405,8 @@ Cree un nuevo archivo Razor llamado `Ejemplo5.razor` en la carpeta `Pages` de su
         new Usuario { Id = 3, Nombre = "Marta López", Email = "marta.lopez@example.com", FechaNacimiento = new DateOnly(1995, 12, 25) },
         new Usuario { Id = 4, Nombre = "Carlos Pérez", Email = "carlos.perez@example.com", FechaNacimiento = new DateOnly(1982, 5, 2) },
         new Usuario { Id = 5, Nombre = "Laura Sánchez", Email = "laura.sanchez@example.com", FechaNacimiento = new DateOnly(1999, 10, 21) },
+        new Usuario { Id = 6, Nombre = "Javier Ruiz", Email = "javier.ruiz@example.com", FechaNacimiento = new DateOnly(1985, 1, 18) },
+        new Usuario { Id = 7, Nombre = "Patricia Gómez", Email = "patricia.gomez@example.com", FechaNacimiento = new DateOnly(1992, 11, 30) },
     };
 
     private Task OnSelectedItemsChanged(HashSet<Usuario> items)
@@ -419,11 +427,11 @@ Cree un nuevo archivo Razor llamado `Ejemplo5.razor` en la carpeta `Pages` de su
 
 ### Comentarios
 
-* `<Grid>`: tabla avanzada con filtrado, paginación y ordenación integradas.
-* `DataProvider`: función que proporciona los datos al grid.
-* `RowKeySelector`: identifica cada fila por su clave primaria.
-* `SelectionMode`: permite selección múltiple o simple.
-* `SelectedItemsChanged`: evento que se dispara al seleccionar filas.
+* `<Grid>`: Tabla avanzada con filtrado, paginación y ordenación integradas.
+* `DataProvider`: Función que proporciona los datos al grid.
+* `RowKeySelector`: Identifica cada fila por su clave primaria.
+* `SelectionMode`: Permite selección múltiple o simple.
+* `SelectedItemsChanged`: Evento que se dispara al seleccionar filas.
 
 **Paso 3. Modificar el archivo de navegación**
 
