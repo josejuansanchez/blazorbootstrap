@@ -19,7 +19,7 @@ Repositorio con ejemplos sobre cómo usar componentes de interfaz con [BlazorBoo
 
 ## Introducción
 
-En esta práctica aprenderemos a utilizar la biblioteca **[BlazorBootstrap][1]**, una librería de componentes creada específicamente para **Blazor Server y Blazor WebAssembly**, que permite aprovechar la potencia de **[Bootstrap 5][2]** sin necesidad de escribir código JavaScript o HTML adicional.
+En esta práctica aprenderemos a utilizar la biblioteca **[BlazorBootstrap][1]**, una librería de componentes creada específicamente para **Blazor Server y Blazor WebAssembly**, que permite aprovechar la potencia de **[Bootstrap 5][2]** sin necesidad de escribir código JavaScript o HTML adicional. Existen otras librerías similares, como por ejemplo **[Blazorise][3]**.
 
 El objetivo de estos ejemplos es familiarizarse con los componentes visuales más comunes: **alertas, botones, modales, tarjetas, formularios y grids**, así como comprender su integración dentro del flujo interactivo de una aplicación Blazor.
 
@@ -28,12 +28,6 @@ El objetivo de estos ejemplos es familiarizarse con los componentes visuales má
 ## Instalación de BlazorBootstrap
 
 Siga los pasos que se detallan en la página oficial de [BlazorBootstrap](https://docs.blazorbootstrap.com/getting-started/blazor-webapp-server-global-net-8) para instalar la librería en su proyecto Blazor.
-
-<!--
-```bash
-dotnet add package Blazor.Bootstrap
-```
--->
 
 ---
 
@@ -533,8 +527,9 @@ Combina el **Ejemplo 2** (Modal) con el **Ejemplo 5** (Grid) para confirmar la e
 
 * [Documentación oficial de BlazorBootstrap](https://docs.blazorbootstrap.com/)
 * [Microsoft Docs: Componentes de Blazor Server](https://learn.microsoft.com/es-es/aspnet/core/blazor/components/?view=aspnetcore-9.0)
-* [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-* [Repositorio GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap)
+* [Documentación oficial de Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+* [Repositorio en GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap)
 
-[1]: https://demos.blazorbootstrap.com/
+[1]: https://demos.blazorbootstrap.com
 [2]: https://getbootstrap.com
+[3]: https://blazorise.com
