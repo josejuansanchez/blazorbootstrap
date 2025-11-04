@@ -525,11 +525,12 @@ Combina el **Ejemplo 2** (Modal) con el **Ejemplo 5** (Grid) para confirmar la e
 
 ## Referencias
 
-* [Documentación oficial de BlazorBootstrap](https://docs.blazorbootstrap.com/)
-* [Microsoft Docs: Componentes de Blazor Server](https://learn.microsoft.com/es-es/aspnet/core/blazor/components/?view=aspnetcore-9.0)
-* [Documentación oficial de Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-* [Repositorio en GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap)
-* [Repositorio en GitHub con ejemplos para las clases de DWM](https://github.com/jaruiz1961-ual/EjemplosClaseDWM)
+* [Documentación oficial de BlazorBootstrap](https://docs.blazorbootstrap.com/).
+* [Microsoft Docs: Componentes de Blazor Server](https://learn.microsoft.com/es-es/aspnet/core/blazor/components./?view=aspnetcore-9.0)
+* [Documentación oficial de Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
+* [Repositorio en GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap).
+* [Repositorio en GitHub con ejemplos para las clases de DWM](https://github.com/jaruiz1961-ual/EjemplosClaseDWM).
+* [Tutorial de Bootstrap 5 en W3Schools](https://www.w3schools.com/bootstrap5/index.php).
 
 [1]: https://demos.blazorbootstrap.com
 [2]: https://getbootstrap.com
