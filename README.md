@@ -394,6 +394,7 @@ Cree un nuevo archivo Razor llamado `Ejemplo5.razor` en la carpeta `Pages` de su
 ```razor
 @page "/ejemplo5"
 @using System.Globalization
+@rendermode InteractiveServer
 
 <h3>Ejemplo 5. Listado de usuarios</h3>
 
@@ -411,13 +412,23 @@ Cree un nuevo archivo Razor llamado `Ejemplo5.razor` en la carpeta `Pages` de su
       SelectionMode="GridSelectionMode.Multiple">
 
     <GridColumns>
-        <GridColumn TItem="Usuario" HeaderText="ID">@context.Id</GridColumn>
-        <GridColumn TItem="Usuario" HeaderText="Nombre">@context.Nombre</GridColumn>
-        <GridColumn TItem="Usuario" HeaderText="Correo electrónico">@context.Email</GridColumn>
-        <GridColumn TItem="Usuario" HeaderText="Fecha de nacimiento">
+        <GridColumn TItem="Usuario" HeaderText="ID" PropertyName="Id" SortKeySelector="u => u.Id">
+            @context.Id
+        </GridColumn>
+
+        <GridColumn TItem="Usuario" HeaderText="Nombre" PropertyName="Nombre" SortKeySelector="u => u.Nombre">
+            @context.Nombre
+        </GridColumn>
+
+        <GridColumn TItem="Usuario" HeaderText="Correo electrónico" PropertyName="Email" SortKeySelector="u => u.Email">
+            @context.Email
+        </GridColumn>
+
+        <GridColumn TItem="Usuario" HeaderText="Fecha de nacimiento" PropertyName="FechaNacimiento" SortKeySelector="u => u.FechaNacimiento">
             @context.FechaNacimiento.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
         </GridColumn>
     </GridColumns>
+
 </Grid>
 
 <div class="mt-3">
@@ -440,24 +451,29 @@ Cree un nuevo archivo Razor llamado `Ejemplo5.razor` en la carpeta `Pages` de su
 
     private async Task<GridDataProviderResult<Usuario>> UsuariosDataProvider(GridDataProviderRequest<Usuario> request)
     {
-        usuarios ??= GetUsuarios();
+        if (usuarios is null)
+            usuarios = GetUsuarios(); // simula la obtención desde una base de datos o API
+
         return await Task.FromResult(request.ApplyTo(usuarios));
     }
 
-    private IEnumerable<Usuario> GetUsuarios() => new List<Usuario>
+    private IEnumerable<Usuario> GetUsuarios()
     {
-        new Usuario { Id = 1, Nombre = "Ana Torres", Email = "ana.torres@example.com", FechaNacimiento = new DateOnly(1990, 3, 14) },
-        new Usuario { Id = 2, Nombre = "Luis García", Email = "luis.garcia@example.com", FechaNacimiento = new DateOnly(1988, 7, 9) },
-        new Usuario { Id = 3, Nombre = "Marta López", Email = "marta.lopez@example.com", FechaNacimiento = new DateOnly(1995, 12, 25) },
-        new Usuario { Id = 4, Nombre = "Carlos Pérez", Email = "carlos.perez@example.com", FechaNacimiento = new DateOnly(1982, 5, 2) },
-        new Usuario { Id = 5, Nombre = "Laura Sánchez", Email = "laura.sanchez@example.com", FechaNacimiento = new DateOnly(1999, 10, 21) },
-        new Usuario { Id = 6, Nombre = "Javier Ruiz", Email = "javier.ruiz@example.com", FechaNacimiento = new DateOnly(1985, 1, 18) },
-        new Usuario { Id = 7, Nombre = "Patricia Gómez", Email = "patricia.gomez@example.com", FechaNacimiento = new DateOnly(1992, 11, 30) },
-    };
+        return new List<Usuario>
+        {
+            new Usuario { Id = 1, Nombre = "Ana Torres", Email = "ana.torres@example.com", FechaNacimiento = new DateOnly(1990, 3, 14) },
+            new Usuario { Id = 2, Nombre = "Luis García", Email = "luis.garcia@example.com", FechaNacimiento = new DateOnly(1988, 7, 9) },
+            new Usuario { Id = 3, Nombre = "Marta López", Email = "marta.lopez@example.com", FechaNacimiento = new DateOnly(1995, 12, 25) },
+            new Usuario { Id = 4, Nombre = "Carlos Pérez", Email = "carlos.perez@example.com", FechaNacimiento = new DateOnly(1982, 5, 2) },
+            new Usuario { Id = 5, Nombre = "Laura Sánchez", Email = "laura.sanchez@example.com", FechaNacimiento = new DateOnly(1999, 10, 21) },
+            new Usuario { Id = 6, Nombre = "Javier Ruiz", Email = "javier.ruiz@example.com", FechaNacimiento = new DateOnly(1985, 1, 18) },
+            new Usuario { Id = 7, Nombre = "Patricia Gómez", Email = "patricia.gomez@example.com", FechaNacimiento = new DateOnly(1992, 11, 30) },
+        };
+    }
 
     private Task OnSelectedItemsChanged(HashSet<Usuario> items)
     {
-        selectedUsuarios = items ?? new();
+        selectedUsuarios = items is not null && items.Any() ? items : new();
         return Task.CompletedTask;
     }
 
