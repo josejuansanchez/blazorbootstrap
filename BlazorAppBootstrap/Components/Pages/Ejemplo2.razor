@@ -1,0 +1,30 @@
+﻿@page "/ejemplo2"
+@rendermode InteractiveServer
+
+<h3>Ejemplo 2. Modal con Blazor Bootstrap</h3>
+
+<Modal @ref="modal" Title="Título del Modal">
+    <BodyTemplate>
+        El contenido del modal va aquí.
+    </BodyTemplate>
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Cerrar</Button>
+        <Button Color="ButtonColor.Primary">Guardar cambios</Button>
+    </FooterTemplate>
+</Modal>
+
+<Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Mostrar Modal</Button>
+
+@code {
+    private Modal modal = default!;
+
+    private async Task OnShowModalClick()
+    {
+        await modal.ShowAsync();
+    }
+
+    private async Task OnHideModalClick()
+    {
+        await modal.HideAsync();
+    }
+}

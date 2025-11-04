@@ -1,0 +1,69 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<Card Style="width:18rem;">
+    <CardBody>
+        <CardTitle>Card title</CardTitle>
+        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+        <Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Go somewhere</Button>
+    </CardBody>
+</Card>
+
+<Card Class="m-4" Style="width:18rem;">
+    <img class="rounded-top" src="/images/placeholder.png" alt="placeholder" />
+    <CardBody>
+        <CardTitle>Card title</CardTitle>
+        <CardSubTitle Class="mb-2 text-muted">Card subtitle</CardSubTitle>
+        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+        <Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Go somewhere</Button>
+    </CardBody>
+</Card>
+
+<BarChart @ref="barChart" Width="500" Height="300" />
+
+@code {
+    private BarChart barChart = default!;
+    private BarChartOptions barChartOptions = default!;
+    private ChartData chartData = default!;
+
+    protected override void OnInitialized()
+    {
+        var labels = new List<string> { "Chrome", "Firefox", "Safari", "Edge" };
+        var datasets = new List<IChartDataset>();
+
+        var dataset1 = new BarChartDataset()
+            {
+                Data = new List<double?> { 55000, 15000, 18000, 21000 },
+                BackgroundColor = new List<string> { ColorUtility.CategoricalTwelveColors[0] },
+                BorderColor = new List<string> { ColorUtility.CategoricalTwelveColors[0] },
+                BorderWidth = new List<double> { 0 },
+            };
+        datasets.Add(dataset1);
+
+        chartData = new ChartData { Labels = labels, Datasets = datasets };
+
+        barChartOptions = new BarChartOptions();
+        barChartOptions.Responsive = true;
+        barChartOptions.Interaction = new Interaction { Mode = InteractionMode.Y };
+        barChartOptions.IndexAxis = "y";
+
+        barChartOptions.Scales.X!.Title = new ChartAxesTitle { Text = "Visitors", Display = true };
+        barChartOptions.Scales.Y!.Title = new ChartAxesTitle { Text = "Browser", Display = true };
+
+        barChartOptions.Plugins.Legend.Display = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await barChart.InitializeAsync(chartData, barChartOptions);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

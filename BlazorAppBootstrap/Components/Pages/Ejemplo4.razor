@@ -1,0 +1,60 @@
+﻿@page "/ejemplo4"
+@using System.ComponentModel.DataAnnotations
+@rendermode InteractiveServer
+
+<h3>Ejemplo 4. Formulario con validación</h3>
+
+<EditForm Model="@usuario" OnValidSubmit="Guardar">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <InputText id="nombre" class="form-control" @bind-Value="usuario.Nombre" />
+        <ValidationMessage For="@(() => usuario.Nombre)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <InputText id="email" class="form-control" @bind-Value="usuario.Email" />
+        <ValidationMessage For="@(() => usuario.Email)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
+        <DateInput TValue="DateOnly?" id="fechaNacimiento" class="form-control" @bind-Value="@usuario.FechaNacimiento" Placeholder="Introduce una fecha" />
+        <ValidationMessage For="@(() => usuario.FechaNacimiento)" />
+    </div>
+
+    <Button Color="ButtonColor.Success" Type="ButtonType.Submit">Guardar</Button>
+</EditForm>
+
+@if (mostrarAlerta)
+{
+    <Alert Color="AlertColor.Success" Dismissable="true" class="mt-3">
+        <Icon Name="IconName.CheckCircleFill" class="me-2"></Icon>
+        Usuario guardado correctamente
+    </Alert>
+}
+
+@code {
+    private Usuario usuario = new();
+    private bool mostrarAlerta = false;
+
+    public class Usuario
+    {
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        public string Nombre { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Formato de correo no válido")]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "La fecha de nacimiento es obligatoria")]
+        public DateOnly? FechaNacimiento { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+    }
+
+    private async Task Guardar()
+    {
+        mostrarAlerta = true;
+    }
+}

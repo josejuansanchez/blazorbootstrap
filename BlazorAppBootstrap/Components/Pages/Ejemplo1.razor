@@ -1,0 +1,39 @@
+﻿@page "/ejemplo1"
+@rendermode InteractiveServer
+
+<h3>Ejemplo 1. Alertas y Botones</h3>
+
+<!-- Alerta fija con botón de cerrar -->
+<Alert Color="AlertColor.Success" Dismissable="true">
+    Alerta sin iconno que se puede cerrar
+</Alert>
+
+<Alert Color="AlertColor.Danger" Dismissable="true">
+    <Icon Name="IconName.ExclamationTriangleFill" class="me-2"></Icon>Alerta con icono que se puede cerrar
+</Alert>
+
+
+<!-- Botón que muestra/oculta la alerta informativa -->
+<Button Color="ButtonColor.Primary" Type="ButtonType.Button" class="me-2" @onclick="ToggleAlerta">
+    Mostrar / Ocultar alerta informativa
+</Button>
+
+<!-- Alerta controlada desde C# -->
+@if (mostrarInfo)
+{
+    <Alert Color="AlertColor.Info" Dismissable="false" class="mt-3">
+        <Icon Name="IconName.InfoCircleFill" class="me-2"></Icon>
+        Esta alerta se muestra dinámicamente desde C#
+    </Alert>
+}
+
+<p class="mt-2"><strong>mostrarInfo:</strong> @mostrarInfo</p>
+
+@code {
+    private bool mostrarInfo = true;
+
+    private void ToggleAlerta() {
+        mostrarInfo = !mostrarInfo;
+        Console.WriteLine("Botón ToggleAlerta pulsado");
+    }
+}
