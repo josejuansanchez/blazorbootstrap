@@ -1,7 +1,5 @@
 # blazorbootstrap
 
-Repositorio con ejemplos sencillos sobre cómo usar componentes de [BlazorBootstrap][1] en los proyectos de la asignatura [Desarrollo Web/Móvil][4].
-
 ## Índice
 
 - [Introducción](#introducción)
@@ -535,4 +533,3 @@ Combina el **Ejemplo 2** (Modal) con el **Ejemplo 5** (Grid) para confirmar la e
 [1]: https://demos.blazorbootstrap.com
 [2]: https://getbootstrap.com
 [3]: https://blazorise.com
-[4]: https://www.ual.es/estudios/masteres/presentacion/plandeestudios/asignatura/7132/71321108
