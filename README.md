@@ -469,10 +469,10 @@ Combina el **Ejemplo 2** (Modal) con el **Ejemplo 5** (Grid) para confirmar la e
 
 ## Referencias
 
-* [Documentación oficial de BlazorBootstrap](https://blazorbootstrap.com/)
+* [Documentación oficial de BlazorBootstrap](https://docs.blazorbootstrap.com/)
 * [Microsoft Docs: Componentes de Blazor Server](https://learn.microsoft.com/es-es/aspnet/core/blazor/components/?view=aspnetcore-9.0)
 * [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 * [Repositorio GitHub de BlazorBootstrap](https://github.com/vikramlearning/blazorbootstrap)
 
-[1]: https://blazorbootstrap.com/
+[1]: https://demos.blazorbootstrap.com/
 [2]: https://getbootstrap.com
