@@ -1,6 +1,6 @@
 # blazorbootstrap
 
-Repositorio con ejemplos sencillos sobre cómo usar componentes de interfaz con [BlazorBootstrap][1], para la asignatura de [Desarrollo Web/Móvil][4].
+Repositorio con ejemplos sencillos sobre cómo usar componentes de [BlazorBootstrap][1] en los proyectos de la asignatura [Desarrollo Web/Móvil][4].
 
 ## Índice
 
