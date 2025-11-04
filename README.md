@@ -51,6 +51,7 @@ Añada el siguiente código al archivo `Ejemplo1.razor`:
 
 ```razor
 @page "/ejemplo1"
+@rendermode InteractiveServer
 
 <h3>Ejemplo 1. Alertas y Botones</h3>
 
@@ -123,6 +124,7 @@ Cree un nuevo archivo Razor llamado `Ejemplo2.razor` en la carpeta `Pages` de su
 
 ```razor
 @page "/ejemplo2"
+@rendermode InteractiveServer
 
 <h3>Ejemplo 2. Modal con Blazor Bootstrap</h3>
 
@@ -181,6 +183,7 @@ Cree un nuevo archivo Razor llamado `Ejemplo3.razor` en la carpeta `Pages` de su
 
 ```razor
 @page "/ejemplo3"
+@rendermode InteractiveServer
 
 <h3>Ejemplo 3. Tarjetas responsivas con información de usuario</h3>
 
@@ -198,16 +201,60 @@ Cree un nuevo archivo Razor llamado `Ejemplo3.razor` en la carpeta `Pages` de su
                          class="img-fluid rounded-circle mb-3"
                          alt="@usuario.Nombre" width="120" />
                     <p class="fw-semibold mb-1">@usuario.Rol</p>
+
                     <div class="border-top pt-2 mt-2 small">
-                        <p><strong>Correo:</strong> @usuario.Email</p>
-                        <p><strong>Teléfono:</strong> @usuario.Telefono</p>
-                        <p><strong>Descripción:</strong> @usuario.Descripcion</p>
+                        <p class="mb-1"><strong>Correo:</strong> @usuario.Email</p>
+                        <p class="mb-1"><strong>Teléfono:</strong> @usuario.Telefono</p>
+                        <p class="mb-0"><strong>Descripción:</strong> @usuario.Descripcion</p>
                     </div>
                 </CardBody>
             </Card>
         </div>
     }
 </div>
+
+@code {
+    private readonly List<Usuario> usuarios = new()
+    {
+        new Usuario
+        {
+            Nombre = "Usuario 1",
+            Rol = "Administrador del sistema",
+            Email = "admin@empresa.com",
+            Telefono = "950 252525",
+            Imagen = "https://randomuser.me/api/portraits/men/40.jpg",
+            Descripcion = "Responsable de la configuración general del sistema y seguridad."
+        },
+        new Usuario
+        {
+            Nombre = "Usuario 2",
+            Rol = "Gestor de contenido",
+            Email = "content@empresa.com",
+            Telefono = "950 242424",
+            Imagen = "https://randomuser.me/api/portraits/men/41.jpg",
+            Descripcion = "Encargado de la creación y actualización de contenidos en el portal."
+        },
+        new Usuario
+        {
+            Nombre = "Usuario 3",
+            Rol = "Soporte técnico",
+            Email = "soporte@empresa.com",
+            Telefono = "950 232323",
+            Imagen = "https://randomuser.me/api/portraits/men/42.jpg",
+            Descripcion = "Atiende incidencias y da soporte a usuarios internos y externos."
+        }
+    };
+
+    private class Usuario
+    {
+        public string Nombre { get; set; } = string.Empty;
+        public string Rol { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Telefono { get; set; } = string.Empty;
+        public string Imagen { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty;
+    }
+}
 ```
 
 ### Comentarios
